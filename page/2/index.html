@@ -70,6 +70,71 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2022/01/18/python-schedule-lib/" title="python schedule 定时任务库" itemprop="url">python schedule 定时任务库</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Smart piggy" target="_blank" itemprop="author">Smart piggy</a>
+		
+  <p class="article-time">
+    <time datetime="2022-01-19T04:24:28.000Z" itemprop="datePublished"> Published 2022-01-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>代码中经常有一些 <strong>定时</strong> 或者 <strong>固定时间间隔</strong> 运行的需求，比如：</p>
+<ul>
+<li>每隔10分钟</li>
+<li>每天10:30</li>
+<li>每周三的13:15</li>
+</ul>
+<p>实现起来不难，但没必要重新发明轮子，请出<a target="_blank" rel="noopener" href="https://www.python.org/"><strong>python</strong></a>的<a target="_blank" rel="noopener" href="https://schedule.readthedocs.io/en/stable/"><strong>schedule</strong></a>库<br><br></p>
+<h4 id="安装方法："><a href="#安装方法：" class="headerlink" title="安装方法："></a>安装方法：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install schedule</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码例子："><a href="#代码例子：" class="headerlink" title="代码例子："></a>代码例子：</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> schedule</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">job</span>():</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;I&#x27;m working...&quot;</span>)</span><br><span class="line"></span><br><span class="line">schedule.every(<span class="number">10</span>).minutes.do(job)</span><br><span class="line">schedule.every().hour.do(job)</span><br><span class="line">schedule.every().day.at(<span class="string">&quot;10:30&quot;</span>).do(job)</span><br><span class="line">schedule.every().monday.do(job)</span><br><span class="line">schedule.every().wednesday.at(<span class="string">&quot;13:15&quot;</span>).do(job)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    schedule.run_pending()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>是不是就像读英文句子，简单自然</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2022/01/14/sqlalchemy-delete-subquery/" title="Sqlalchemy 通过子查询删除" itemprop="url">Sqlalchemy 通过子查询删除</a>
   </h1>
   <p class="article-author">By
@@ -449,7 +514,7 @@ DBSession.query(Employee).filter(Employee.person_id.in_(sl)).delete(<font bold c
 		  
 		
 		  
-			<li><a href="/categories/编程/" title="编程">编程<sup>4</sup></a></li>
+			<li><a href="/categories/编程/" title="编程">编程<sup>5</sup></a></li>
 		  
 		
 		</ul>
@@ -461,7 +526,7 @@ DBSession.query(Employee).filter(Employee.person_id.in_(sl)).delete(<font bold c
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">Archives</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">8</span></li></ul>
   </div>
 
 
