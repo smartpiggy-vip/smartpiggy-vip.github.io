@@ -70,6 +70,73 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2022/01/14/sqlalchemy-delete-subquery/" title="Sqlalchemy 通过子查询删除" itemprop="url">Sqlalchemy 通过子查询删除</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Smart piggy" target="_blank" itemprop="author">Smart piggy</a>
+		
+  <p class="article-time">
+    <time datetime="2022-01-14T19:15:46.000Z" itemprop="datePublished"> Published 2022-01-14</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>在<a target="_blank" rel="noopener" href="https://www.sqlalchemy.org/"><strong>sqlalchemy</strong></a>中使用子查询过滤删除，例如，将<code>Employee</code>表中所有年龄小于18岁的人员删除：</p>
+<pre><code>sl = DBSession.query(Person.id).filter(Person.age < 18).subquery()
+DBSession.query(Employee).filter(Employee.person_id.in_(sl)).delete()
+</code></pre>
+<p>得到错误：</p>
+<pre><code><font color="#F56C6C">sqlalchemy.exc.InvalidRequestError: Could not evaluate current criteria in Python:
+"Cannot evaluate Select". Specify 'fetch' or False for the synchronize_session execution option.
+</font></code></pre>
+<p>原因是<a target="_blank" rel="noopener" href="https://www.sqlalchemy.org/"><strong>sqlalchemy</strong></a>的内部数据对象无法在一次<code>select</code>中完成查询和删除<br>需要忽略对象同步，强制更新。加入如下参数后，运行正常：</p>
+<pre><code>sl = DBSession.query(Person.id).filter(Person.age < 18).subquery()
+DBSession.query(Employee).filter(Employee.person_id.in_(sl)).delete(<font bold color="#409EFF"><b>synchronize_session=False</b></font>)
+</code></pre>
+<p>附上相关问题的<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/7892618/sqlalchemy-delete-subquery">StackOverflow链接</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2022/01/07/heroin-history/" title="海洛因简史" itemprop="url">海洛因简史</a>
   </h1>
   <p class="article-author">By
@@ -382,7 +449,7 @@
 		  
 		
 		  
-			<li><a href="/categories/编程/" title="编程">编程<sup>3</sup></a></li>
+			<li><a href="/categories/编程/" title="编程">编程<sup>4</sup></a></li>
 		  
 		
 		</ul>
@@ -394,7 +461,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">Archives</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">8</span></li></ul>
   </div>
 
 
