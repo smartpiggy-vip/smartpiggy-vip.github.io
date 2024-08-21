@@ -4,22 +4,22 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Get OpenVPN work | 欢喜猪爸爸</title>
+    <title>Radical Microsoft | 欢喜猪爸爸</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Smart piggy">
     
 
     
-    <meta name="description" content="Recenty I tried to connect my office from home with open-vpn.It worked fine when using ubuntu 18.04 a few months ago.But after I upgrade system to ubuntu 22.04, it failed. Open-vpn showed below log: N">
+    <meta name="description" content="About 10 years ago, I worked at Gameloft as a game server developer.We used C++ to develop an online MMO-RPG game, where thousands of players connected simultaneously. One day after a game update, our">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Get OpenVPN work">
-<meta property="og:url" content="https://smartpiggy-vip.github.io/2024/01/27/Get-OpenVPN-working/index.html">
+<meta property="og:title" content="Radical Microsoft">
+<meta property="og:url" content="https://smartpiggy-vip.github.io/2024/08/22/Server-lag/index.html">
 <meta property="og:site_name" content="欢喜猪爸爸">
-<meta property="og:description" content="Recenty I tried to connect my office from home with open-vpn.It worked fine when using ubuntu 18.04 a few months ago.But after I upgrade system to ubuntu 22.04, it failed. Open-vpn showed below log: N">
+<meta property="og:description" content="About 10 years ago, I worked at Gameloft as a game server developer.We used C++ to develop an online MMO-RPG game, where thousands of players connected simultaneously. One day after a game update, our">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-01-27T10:48:03.000Z">
-<meta property="article:modified_time" content="2024-08-21T22:02:36.865Z">
+<meta property="article:published_time" content="2024-08-21T22:01:25.000Z">
+<meta property="article:modified_time" content="2024-08-21T23:41:34.145Z">
 <meta property="article:author" content="Smart piggy">
 <meta name="twitter:card" content="summary">
 
@@ -72,14 +72,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2024/01/27/Get-OpenVPN-working/" title="Get OpenVPN work" itemprop="url">Get OpenVPN work</a>
+      <a href="/2024/08/22/Server-lag/" title="Radical Microsoft" itemprop="url">Radical Microsoft</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Smart piggy" target="_blank" itemprop="author">Smart piggy</a>
 		
   <p class="article-time">
-    <time datetime="2024-01-27T10:48:03.000Z" itemprop="datePublished"> Published 2024-01-27</time>
+    <time datetime="2024-08-21T22:01:25.000Z" itemprop="datePublished"> Published 2024-08-22</time>
     
   </p>
 </header>
@@ -92,13 +92,17 @@
 		
 		</div>
 		
-		<p>Recenty I tried to connect my office from home with open-vpn.<br>It worked fine when using ubuntu 18.04 a few months ago.<br>But after I upgrade system to ubuntu 22.04, it failed.</p>
-<p>Open-vpn showed below log:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">NOTE: unable to redirect IPv4 default gateway -- VPN gateway parameter (--route-gateway or --ifconfig) is missing</span><br></pre></td></tr></table></figure>
-<p>I don’t know what exactly it means, I’m not a network expert, so I searched web.<br>After hours of searching I got nothing! All answers are not even close.</p>
-<p>Then I paste the log to Chat-GPT, she told me add below line to open-vpn config file:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ifconfig 192.168.1.xxx 255.255.255.0</span><br></pre></td></tr></table></figure>
-<p>It works! Great Chat-GPT!</p>
+		<p>About 10 years ago, I worked at Gameloft as a game server developer.<br>We used C++ to develop an online MMO-RPG game, where thousands of players connected simultaneously.</p>
+<p>One day after a game update, our QA team reported a bug: players experienced significant lag when performing actions.<br>The game client team investigated and informed me that the lag originated from the server.</p>
+<p>I added some logs and eventually found the problematic code.<br>It’s a call to get the size of a list, which looked something like this:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">std::list&lt;<span class="type">int</span>&gt; items;</span><br><span class="line">... <span class="comment">// do someting with items</span></span><br><span class="line"><span class="type">int</span> count = items.<span class="built_in">size</span>();</span><br></pre></td></tr></table></figure>
+<p>Can you see the problem?</p>
+<p>The <code>size()</code> function’s time complexity was O(N), not O(1)! <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/list/size">until C++11</a><br>So why didn’t I catch this issue in tests before it went live?</p>
+<ul>
+<li>First, it’s only noticeable when the list contains a large number of items.</li>
+<li>Second, We tested under Windows, compiling the code with MSVC. The default STL library in MSVC implemented <code>size()</code> as an O(1) function.However our production server ran on linux and was compiled with GCC. </li>
+</ul>
+<p>Yes MSVC was ahead of its time in this regard.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -116,7 +120,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://smartpiggy-vip.github.io/2024/01/27/Get-OpenVPN-working/" data-title="Get OpenVPN work | 欢喜猪爸爸" data-tsina="" class="share clearfix">
+	  <div data-url="https://smartpiggy-vip.github.io/2024/08/22/Server-lag/" data-title="Radical Microsoft | 欢喜猪爸爸" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -129,19 +133,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2024/08/22/Server-lag/" title="Radical Microsoft">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Radical Microsoft</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2024/01/15/Hexo-startup-for-exist-blog/"  title="Hexo startup for exist blog">
+<a href="/2024/01/27/Get-OpenVPN-working/"  title="Get OpenVPN work">
  <strong>下一篇：</strong><br/> 
- <span>Hexo startup for exist blog
+ <span>Get OpenVPN work
 </span>
 </a>
 </div>

@@ -70,6 +70,71 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2024/08/22/Server-lag/" title="Radical Microsoft" itemprop="url">Radical Microsoft</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Smart piggy" target="_blank" itemprop="author">Smart piggy</a>
+		
+  <p class="article-time">
+    <time datetime="2024-08-21T22:01:25.000Z" itemprop="datePublished"> Published 2024-08-22</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>About 10 years ago, I worked at Gameloft as a game server developer.<br>We used C++ to develop an online MMO-RPG game, where thousands of players connected simultaneously.</p>
+<p>One day after a game update, our QA team reported a bug: players experienced significant lag when performing actions.<br>The game client team investigated and informed me that the lag originated from the server.</p>
+<p>I added some logs and eventually found the problematic code.<br>It’s a call to get the size of a list, which looked something like this:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">std::list&lt;<span class="type">int</span>&gt; items;</span><br><span class="line">... <span class="comment">// do someting with items</span></span><br><span class="line"><span class="type">int</span> count = items.<span class="built_in">size</span>();</span><br></pre></td></tr></table></figure>
+<p>Can you see the problem?</p>
+<p>The <code>size()</code> function’s time complexity was O(N), not O(1)! <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/list/size">until C++11</a><br>So why didn’t I catch this issue in tests before it went live?</p>
+<ul>
+<li>First, it’s only noticeable when the list contains a large number of items.</li>
+<li>Second, We tested under Windows, compiling the code with MSVC. The default STL library in MSVC implemented <code>size()</code> as an O(1) function.However our production server ran on linux and was compiled with GCC. </li>
+</ul>
+<p>Yes MSVC was ahead of its time in this regard.</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2024/01/27/Get-OpenVPN-working/" title="Get OpenVPN work" itemprop="url">Get OpenVPN work</a>
   </h1>
   <p class="article-author">By
@@ -102,7 +167,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
 </div>
 
 
@@ -169,7 +234,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
 </div>
 
 
@@ -224,7 +289,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
 </div>
 
 
@@ -280,7 +345,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
 </div>
 
 
@@ -347,7 +412,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
 </div>
 
 
@@ -403,7 +468,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+  <a class="article-category-link" href="/categories/Life/">Life</a>
 </div>
 
 
@@ -473,7 +538,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+  <a class="article-category-link" href="/categories/Life/">Life</a>
 </div>
 
 
@@ -528,7 +593,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/%E7%AC%91%E8%AF%9D/">笑话</a>
+  <a class="article-category-link" href="/categories/Joke/">Joke</a>
 </div>
 
 
@@ -585,62 +650,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/%E7%A7%91%E6%99%AE/">科普</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2022/02/19/spare-tire/" title="备胎" itemprop="url">备胎</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Smart piggy" target="_blank" itemprop="author">Smart piggy</a>
-		
-  <p class="article-time">
-    <time datetime="2022-02-19T03:26:34.000Z" itemprop="datePublished"> Published 2022-02-19</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>早上开车，胎压警示灯亮了。<br>拿上气泵检测，发现4个轮胎都是1.9bar，于是全充气到2.5bar。<br>启动车辆，还是胎压报警！<br>难道是备胎？<br>果然，备胎也是1.9bar，充到2.5后，警告消失。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+  <a class="article-category-link" href="/categories/Science/">Science</a>
 </div>
 
 
@@ -665,7 +675,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next&lt;span&gt;&lt;&#x2F;span&gt;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next&lt;span&gt;&lt;&#x2F;span&gt;</a>
   </nav>
 
 </div>
@@ -684,19 +694,19 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/生活/" title="生活">生活<sup>7</sup></a></li>
+			<li><a href="/categories/Coding/" title="Coding">Coding<sup>9</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/科普/" title="科普">科普<sup>2</sup></a></li>
+			<li><a href="/categories/Joke/" title="Joke">Joke<sup>4</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/笑话/" title="笑话">笑话<sup>4</sup></a></li>
+			<li><a href="/categories/Life/" title="Life">Life<sup>7</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/编程/" title="编程">编程<sup>8</sup></a></li>
+			<li><a href="/categories/Science/" title="Science">Science<sup>2</sup></a></li>
 		  
 		
 		</ul>
@@ -708,7 +718,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">Archives</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">8</span></li></ul>
   </div>
 
 
