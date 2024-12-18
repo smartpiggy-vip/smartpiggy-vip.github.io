@@ -84,14 +84,6 @@
   </p>
 </header>
 	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
-		
-			
-		
-		</div>
-		
 		<p>在<a target="_blank" rel="noopener" href="https://www.sqlalchemy.org/"><strong>sqlalchemy</strong></a>中使用子查询过滤删除，例如，将<code>Employee</code>表中所有年龄小于18岁的人员删除：</p>
 <pre><code>sl = DBSession.query(Person.id).filter(Person.age < 18).subquery()
 DBSession.query(Employee).filter(Employee.person_id.in_(sl)).delete()
@@ -145,9 +137,9 @@ DBSession.query(Employee).filter(Employee.person_id.in_(sl)).delete(<font bold c
 
 
 <div class="next">
-<a href="/2022/01/07/heroin-history/"  title="海洛因简史">
+<a href="/2022/01/07/heroin-history/"  title="History of Heroin">
  <strong>Next:</strong><br/> 
- <span>海洛因简史
+ <span>History of Heroin
 </span>
 </a>
 </div>

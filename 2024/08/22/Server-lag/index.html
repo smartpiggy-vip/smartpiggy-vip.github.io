@@ -84,14 +84,6 @@
   </p>
 </header>
 	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
-		
-			
-		
-		</div>
-		
 		<p>About 10 years ago, I worked at Gameloft as a game server developer.<br>We used C++ to develop an online MMO-RPG game, where thousands of players connected simultaneously.</p>
 <p>One day after a game update, our QA team reported a bug: players experienced significant lag when performing actions.<br>The game client team investigated and informed me that the lag originated from the server.</p>
 <p>I added some logs and eventually found the problematic code.<br>It’s a call to get the size of a list, which looked something like this:</p>
