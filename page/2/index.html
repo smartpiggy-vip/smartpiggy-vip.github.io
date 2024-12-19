@@ -415,7 +415,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2022/01/14/sqlalchemy-delete-subquery/" title="Sqlalchemy 通过子查询删除" itemprop="url">Sqlalchemy 通过子查询删除</a>
+      <a href="/2022/01/14/sqlalchemy-delete-subquery/" title="How to Delete Rows Using an SQLAlchemy Subquery" itemprop="url">How to Delete Rows Using an SQLAlchemy Subquery</a>
   </h1>
   <p class="article-author">By
        
@@ -428,19 +428,19 @@
 </header>
     <div class="article-content">
         
-        <p>在<a target="_blank" rel="noopener" href="https://www.sqlalchemy.org/"><strong>sqlalchemy</strong></a>中使用子查询过滤删除，例如，将<code>Employee</code>表中所有年龄小于18岁的人员删除：</p>
+        <p>When trying to delete rows using an <a target="_blank" rel="noopener" href="https://www.sqlalchemy.org/"><strong>SQLAlchemy</strong></a> subquery, such as deleting all rows in <code>Employee</code> table where the age of associated Person is below 18, you might write something like this:</p>
 <pre><code>sl = DBSession.query(Person.id).filter(Person.age < 18).subquery()
 DBSession.query(Employee).filter(Employee.person_id.in_(sl)).delete()
 </code></pre>
-<p>得到错误：</p>
+<p>How ever, this will result in the following error:</p>
 <pre><code><font color="#F56C6C">sqlalchemy.exc.InvalidRequestError: Could not evaluate current criteria in Python:
 "Cannot evaluate Select". Specify 'fetch' or False for the synchronize_session execution option.
 </font></code></pre>
-<p>原因是<a target="_blank" rel="noopener" href="https://www.sqlalchemy.org/"><strong>sqlalchemy</strong></a>的内部数据对象无法在一次<code>select</code>中完成查询和删除<br>需要忽略对象同步，强制更新。加入如下参数后，运行正常：</p>
+<p>The reason for this error is that <a target="_blank" rel="noopener" href="https://www.sqlalchemy.org/"><strong>SQLAlchemy</strong></a> cannot synchronize objects in a single loop when both <code>SELECT</code> and <code>DELETE</code> operations are involved.<br>To resolve this issue, you need to disable synchronization by adding the <code>synchronize_session=False</code> parameter:</p>
 <pre><code>sl = DBSession.query(Person.id).filter(Person.age < 18).subquery()
 DBSession.query(Employee).filter(Employee.person_id.in_(sl)).delete(<font bold color="#409EFF"><b>synchronize_session=False</b></font>)
 </code></pre>
-<p>附上相关问题的<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/7892618/sqlalchemy-delete-subquery">StackOverflow链接</a></p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/7892618/sqlalchemy-delete-subquery">StackOverflow Link</a> for this issue.</p>
 
         
         
@@ -499,7 +499,7 @@ DBSession.query(Employee).filter(Employee.person_id.in_(sl)).delete(<font bold c
 <li>Thousands years ago, humans began planting <strong>poppy</strong>, and discovered that drinking its juice could create a feeling of happiness.</li>
 <li>Refined poppy juice is called <strong>opium</strong> and was widely used to reduce pain and suppress coughs.</li>
 <li>In the 16th century, people began smoking optium, it spread to China and eventually led to the First Opium War.</li>
-<li>In the early 19th century, Scientists refined opium into <strong>morphine</strong>. During America Civil War, morphine was widely used as a painkeller, but many soldiers developed morphine addiction after the war.</li>
+<li>In the early 19th century, Scientists refined opium into <strong>morphine</strong>. During America Civil War, morphine was widely used as a painkiller, but many soldiers developed morphine addiction after the war.</li>
 <li>In 1897, Bayer, a German pharmaceutical company, synthesized diacetylmorphine and named it <strong>Herorin</strong>, meaning ‘Hero’.</li>
 <li>In 1912, the ‘International Opium Convention’ was signed in The Hague, This marked the beginning of global efforts to regulate opium,morphine, and heroin as drugs.</li>
 </ul>
