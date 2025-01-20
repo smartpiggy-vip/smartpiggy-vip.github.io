@@ -4,22 +4,22 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>pip using tsinghua source | Steven Zhou</title>
+    <title>Bloom Filter | Steven Zhou</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Steven Zhou">
     
 
     
-    <meta name="description" content="pip3 install xxx -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple">
+    <meta name="description" content="If you need to design a user registration system, how would you implement username conflict checking? When a user creates a new name, the system need to check if this name has already been used. The f">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pip using tsinghua source">
-<meta property="og:url" content="https://smartpiggy-vip.github.io/2022/01/04/pip_tsinghua/index.html">
+<meta property="og:title" content="Bloom Filter">
+<meta property="og:url" content="https://smartpiggy-vip.github.io/2021/01/21/Bloom-Filter/index.html">
 <meta property="og:site_name" content="Steven Zhou">
-<meta property="og:description" content="pip3 install xxx -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple">
+<meta property="og:description" content="If you need to design a user registration system, how would you implement username conflict checking? When a user creates a new name, the system need to check if this name has already been used. The f">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-01-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-12-18T16:47:56.235Z">
+<meta property="article:published_time" content="2021-01-20T19:27:52.000Z">
+<meta property="article:modified_time" content="2025-01-20T20:34:33.486Z">
 <meta property="article:author" content="Steven Zhou">
 <meta name="twitter:card" content="summary">
 
@@ -72,19 +72,23 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2022/01/04/pip_tsinghua/" title="pip using tsinghua source" itemprop="url">pip using tsinghua source</a>
+      <a href="/2021/01/21/Bloom-Filter/" title="Bloom Filter" itemprop="url">Bloom Filter</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Steven Zhou" target="_blank" itemprop="author">Steven Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2022-01-03T16:00:00.000Z" itemprop="datePublished"> Published 2022-01-04</time>
+    <time datetime="2021-01-20T19:27:52.000Z" itemprop="datePublished"> Published 2021-01-21</time>
     
   </p>
 </header>
 	<div class="article-content">
-		<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip3 install xxx -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+		<p>If you need to design a user registration system, how would you implement username conflict checking? When a user creates a new name, the system need to check if this name has already been used.</p>
+<p>The first and easiest way you might think is using a database table to store all usernames with a unique constraint.<br>A simple SQL query could then determine if the name is used.<br>But what if the system has billions of users, and millions of users are using the system simultaneously(like Facebook)? The simple SQL query could become a huge bottleneck.</p>
+<p>Then you might get a new idea: store all usernames in memory with a hash table(such as Redis). The query would be super fast.<br>Yes, it’s a solution. But storing billions of usernames would consume a lot of memory.<br>If one username is 32 bytes in size, one billion usernames would use 32GB of memory, which is huge.</p>
+<p>How could we get both speed and memory efficiency?</p>
+<p>The answer is <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bloom_filter"><strong>Bloom Filter</strong></a>:<br>A Bloom Filter builds a hash table with a range of keys, where each key uses a single bit to indicate whether it is occupied.<br>Using this approach, one billion names would require only 128MB of memory.<br>To reduce hash conflicts, multiple hash tables with different hash salts are used.<br>It uses much less memory and maintains high performance.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -102,7 +106,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://smartpiggy-vip.github.io/2022/01/04/pip_tsinghua/" data-title="pip using tsinghua source | Steven Zhou" data-tsina="" class="share clearfix">
+	  <div data-url="https://smartpiggy-vip.github.io/2021/01/21/Bloom-Filter/" data-title="Bloom Filter | Steven Zhou" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -116,21 +120,13 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2022/01/05/north-winter/" title="Advantage of Winter">
+ <a href="/2022/01/01/hello-world/" title="A Chat Between Two ETs">
   <strong>Last:</strong><br/>
   <span>
-  Advantage of Winter</span>
+  A Chat Between Two ETs</span>
 </a>
 </div>
 
-
-<div class="next">
-<a href="/2022/01/03/about-socks/"  title="Trouble of Pairing Socks">
- <strong>Next:</strong><br/> 
- <span>Trouble of Pairing Socks
-</span>
-</a>
-</div>
 
 </nav>
 
