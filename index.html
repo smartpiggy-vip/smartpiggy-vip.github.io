@@ -487,6 +487,69 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2023/01/22/Time-Travel/" title="Real World Time Travel" itemprop="url">Real World Time Travel</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Steven Zhou" target="_blank" itemprop="author">Steven Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2023-01-21T18:08:53.000Z" itemprop="datePublished"> Published 2023-01-22</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>Years ago, I worked at Gameloft as a game server developer.<br>Our server needed to handle player actions in real-time. Its main loop ran at a fixed speed of 10 FPS, meaning the server would process data every 100 milliseconds. If the processing finished in less than 100 ms, the server would sleep until the start of the next 100 ms period.</p>
+<p>To achieve this, the server called the Linux times() function before and after the processing step to calculate elapsed time, as shown below:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int64 beginTime = getCurTime();</span><br><span class="line">// hadling player data</span><br><span class="line">int64 endTime = getCurTime();</span><br><span class="line">int64 timeElapsed = endTime - startTime;</span><br></pre></td></tr></table></figure>
+<p>You can see that <strong>timeElapsed</strong> is always expected to be a positive number.</p>
+<p>One day, all the servers crashed simultaneously.<br>Upon inspecting the core dump, I discovered the cause: <strong>timeElapsed</strong> was calculated as -900 ms, meaning the server’s clock had somehow gone backward by a second. Every single server was affected.</p>
+<p>Was this real-world time travel?</p>
+<p>I then recalled a news article I had recently read: About Leap Seconds.<br>We all know about leap years: the Earth’s orbit around the Sun isn’t exactly 365 days, it is closer to 365.24 days.<br>Leap years help ensure our calendars remain aligned with the Earth’s orbit.<br>Similarly, the Earth’s rotation isn’t perfect 24 hours, it varies due to climatic and geological factors.<br>To keep the world clock aligned with the Earth’s rotation, adjustments are made when the difference approaches one second.<br>These adjustments are called <a target="_blank" rel="noopener" href="https://www.nist.gov/pml/time-and-frequency-division/time-realization/leap-seconds"><strong>leap seconds</strong></a>.</p>
+<p>The most recent leap second, at the time, had been applied on 2016-12-31, the exact date our servers crashed.<br>At midnight, all server’s time moved back from 00:00:00 to 23:59:59 of the previous day.</p>
+<p>The bug was easy to fix but hard to forget.</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2022/05/19/vue3-vite-expose-host/" title="Vue3 + Vite Local Access" itemprop="url">Vue3 + Vite Local Access</a>
   </h1>
   <p class="article-author">By
@@ -604,62 +667,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2022/04/28/shang-hai/" title="ShangHai" itemprop="url">ShangHai</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Steven Zhou" target="_blank" itemprop="author">Steven Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2022-04-28T14:34:10.000Z" itemprop="datePublished"> Published 2022-04-28</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Many years ago, I visited Shanghai for my first time.<br>It was very early in the moring when I got off the train and went to the office building where my company was located.<br>In the lobby, there was a long line of people.<br>What were they doing? Was there free breakfast?<br>The truth shocked me: They were lining up to wait for the elevator!<br>You see, back then, no one in Beijing lined up to wait for an elevator. We would all crowd around the elevator doors.<br>This was my first impression of Shanghai: It was 20 years ahead of Beijing in terms of civilization.</p>
-<p>But this year, the pandemic situation in Shanghai has made me think it is 20 years behind in terms of civilization.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Life/">Life</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next&lt;span&gt;&lt;&#x2F;span&gt;</a>
@@ -681,7 +688,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/Coding/" title="Coding">Coding<sup>10</sup></a></li>
+			<li><a href="/categories/Coding/" title="Coding">Coding<sup>11</sup></a></li>
 		  
 		
 		  
@@ -705,7 +712,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">Archives</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
 
