@@ -70,6 +70,67 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2024/01/27/Get-OpenVPN-working/" title="Get OpenVPN work" itemprop="url">Get OpenVPN work</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="mailto:steven@mengzhou.org" title="Steven Zhou" target="_blank" itemprop="author">Steven Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2024-01-27T10:48:03.000Z" itemprop="datePublished"> Published 2024-01-27</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>Recenty I tried to connect my office from home with open-vpn.<br>It worked fine when using ubuntu 18.04 a few months ago.<br>But after I upgrade system to ubuntu 22.04, it failed.</p>
+<p>Open-vpn showed below log:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">NOTE: unable to redirect IPv4 default gateway -- VPN gateway parameter (--route-gateway or --ifconfig) is missing</span><br></pre></td></tr></table></figure>
+<p>I don’t know what exactly it means, I’m not a network expert, so I searched web.<br>After hours of searching I got nothing! All answers are not even close.</p>
+<p>Then I paste the log to Chat-GPT, she told me add below line to open-vpn config file:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ifconfig 192.168.1.xxx 255.255.255.0</span><br></pre></td></tr></table></figure>
+<p>It works! Great Chat-GPT!</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2024/01/15/Hexo-startup-for-exist-blog/" title="Hexo startup for exist blog" itemprop="url">Hexo startup for exist blog</a>
   </h1>
   <p class="article-author">By
@@ -615,63 +676,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2022/02/19/Kon-Tiki/" title="The Movie &#34;Kon-Tiki&#34;" itemprop="url">The Movie &#34;Kon-Tiki&#34;</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="mailto:steven@mengzhou.org" title="Steven Zhou" target="_blank" itemprop="author">Steven Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2022-02-19T03:42:12.000Z" itemprop="datePublished"> Published 2022-02-19</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>Thor Heyerdahl</strong> was an anthropologist from Norway.<br>While conducting research in Polynesia, relics and local tales led him to believe that the original inhabitants came from South America in the 5th century AD.<br>However, no one believed his theory.</p>
-<p>To prove his hypothsis, he gathered five volunteers, and build a raft named “Kon-Tiki” using traditional indigenous techniques.<br>In Apirl 1947, they set off from Peru on this raft.<br>After spending 101 days and traveling 4900 miles, they arrived in Polynesia, create a remarkable milestone in the history of human sailing.</p>
-<p><a target="_blank" rel="noopener" href="https://www.imdb.com/title/tt1613750/">Movie IMDB Link</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Science/">Science</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/">&lt;span&gt;&lt;&#x2F;span&gt;Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next&lt;span&gt;&lt;&#x2F;span&gt;</a>
@@ -717,7 +721,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">Archives</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
 
