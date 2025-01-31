@@ -4,24 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Real World Time Travel | Steven Zhou</title>
+    <title>MIG-25 Betrayed to Japan | Steven Zhou</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Steven Zhou">
     
 
     
-    <meta name="description" content="Years ago, I worked at Gameloft as a game server developer.Our server needed to handle player actions in real-time. Its main loop ran at a fixed speed of 10 FPS, meaning the server would process data">
+    <meta name="description" content="On September 6, 1976, Soviet Union pilot Viktor Belenko flew a MIG-25 fighter and defected to Japan.The Soviet Union immediately asked Japan to return the MIG-25, which was a top military secret. Howe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Real World Time Travel">
-<meta property="og:url" content="https://smartpiggy-vip.github.io/2023/01/22/Time-Travel/index.html">
+<meta property="og:title" content="MIG-25 Betrayed to Japan">
+<meta property="og:url" content="https://smartpiggy-vip.github.io/2025/02/01/MIG-25-betrayed-to-Japan/index.html">
 <meta property="og:site_name" content="Steven Zhou">
-<meta property="og:description" content="Years ago, I worked at Gameloft as a game server developer.Our server needed to handle player actions in real-time. Its main loop ran at a fixed speed of 10 FPS, meaning the server would process data">
+<meta property="og:description" content="On September 6, 1976, Soviet Union pilot Viktor Belenko flew a MIG-25 fighter and defected to Japan.The Soviet Union immediately asked Japan to return the MIG-25, which was a top military secret. Howe">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-01-21T18:08:53.000Z">
-<meta property="article:modified_time" content="2025-01-21T19:42:54.582Z">
+<meta property="og:image" content="https://smartpiggy-vip.github.io/2025/02/01/MIG-25-betrayed-to-Japan/Viktor_Belenko_Document.jpeg">
+<meta property="article:published_time" content="2025-01-31T18:20:54.000Z">
+<meta property="article:modified_time" content="2025-01-31T19:00:21.239Z">
 <meta property="article:author" content="Steven Zhou">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://smartpiggy-vip.github.io/2025/02/01/MIG-25-betrayed-to-Japan/Viktor_Belenko_Document.jpeg">
 
     
     <link rel="alternative" href="/atom.xml" title="Steven Zhou" type="application/atom+xml">
@@ -72,27 +74,24 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2023/01/22/Time-Travel/" title="Real World Time Travel" itemprop="url">Real World Time Travel</a>
+      <a href="/2025/02/01/MIG-25-betrayed-to-Japan/" title="MIG-25 Betrayed to Japan" itemprop="url">MIG-25 Betrayed to Japan</a>
   </h1>
   <p class="article-author">By
        
 		<a href="mailto:steven@mengzhou.org" title="Steven Zhou" target="_blank" itemprop="author">Steven Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2023-01-21T18:08:53.000Z" itemprop="datePublished"> Published 2023-01-22</time>
+    <time datetime="2025-01-31T18:20:54.000Z" itemprop="datePublished"> Published 2025-02-01</time>
     
   </p>
 </header>
 	<div class="article-content">
-		<p>Years ago, I worked at Gameloft as a game server developer.<br>Our server needed to handle player actions in real-time. Its main loop ran at a fixed speed of 10 FPS, meaning the server would process data every 100 milliseconds. If the processing finished in less than 100 ms, the server would sleep until the start of the next 100 ms period.</p>
-<p>To achieve this, the server called the Linux times() function before and after the processing step to calculate elapsed time, as shown below:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int64 beginTime = getCurTime();</span><br><span class="line">// hadling player data</span><br><span class="line">int64 endTime = getCurTime();</span><br><span class="line">int64 timeElapsed = endTime - startTime;</span><br></pre></td></tr></table></figure>
-<p>You can see that <strong>timeElapsed</strong> is always expected to be a positive number.</p>
-<p>One day, all the servers crashed simultaneously.<br>Upon inspecting the core dump, I discovered the cause: <strong>timeElapsed</strong> was calculated as -900 ms, meaning the server’s clock had somehow gone backward by a second. Every single server was affected.</p>
-<p>Was this real-world time travel?</p>
-<p>I then recalled a news article I had recently read: About Leap Seconds.<br>We all know about leap years: the Earth’s orbit around the Sun isn’t exactly 365 days, it is closer to 365.24 days.<br>Leap years help ensure our calendars remain aligned with the Earth’s orbit.<br>Similarly, the Earth’s rotation isn’t perfect 24 hours, it varies due to climatic and geological factors.<br>To keep the world clock aligned with the Earth’s rotation, adjustments are made when the difference approaches one second.<br>These adjustments are called <a target="_blank" rel="noopener" href="https://www.nist.gov/pml/time-and-frequency-division/time-realization/leap-seconds"><strong>leap seconds</strong></a>.</p>
-<p>The most recent leap second, at the time, had been applied on 2016-12-31, the exact date our servers crashed.<br>At midnight, all server’s time moved back from 00:00:00 to 23:59:59 of the previous day.</p>
-<p>The bug was easy to fix but hard to forget.</p>
+		<p>On September 6, 1976, Soviet Union pilot Viktor Belenko flew a MIG-25 fighter and defected to Japan.<br>The Soviet Union immediately asked Japan to return the MIG-25, which was a top military secret.</p>
+<p>However, the Japanese goverment informed US goverment first and gave various reasons to delay its return.<br>Meanwhile, the US sent engineers to Japan, where they disassembled and examined the fighter for weeks.</p>
+<p>On November 15, 1976, the fighter was returned to Soviet Union with many parts missing.</p>
+<img src="/2025/02/01/MIG-25-betrayed-to-Japan/Viktor_Belenko_Document.jpeg" class="">
+
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Viktor_Belenko"><strong>Viktor Belenko</strong></a> started a new life in USA and later wrote a book about this story.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -100,7 +99,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Coding/">Coding</a>
+  <a class="article-category-link" href="/categories/Science/">Science</a>
 </div>
 
 
@@ -110,7 +109,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://smartpiggy-vip.github.io/2023/01/22/Time-Travel/" data-title="Real World Time Travel | Steven Zhou" data-tsina="" class="share clearfix">
+	  <div data-url="https://smartpiggy-vip.github.io/2025/02/01/MIG-25-betrayed-to-Japan/" data-title="MIG-25 Betrayed to Japan | Steven Zhou" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -123,19 +122,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2023/01/25/Kotlin-object-not-get-auto-inject/" title="Kotlin object not get auto-injected">
-  <strong>Last:</strong><br/>
-  <span>
-  Kotlin object not get auto-injected</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2022/05/19/vue3-vite-expose-host/"  title="Vue3 + Vite Local Access">
+<a href="/2025/01/31/Weird-Interview/"  title="Weird Interview">
  <strong>Next:</strong><br/> 
- <span>Vue3 + Vite Local Access
+ <span>Weird Interview
 </span>
 </a>
 </div>
