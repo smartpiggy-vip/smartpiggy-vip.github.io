@@ -70,6 +70,73 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2022/01/13/sqlalchemy-delete-subquery/" title="How to Delete Rows Using an SQLAlchemy Subquery" itemprop="url">How to Delete Rows Using an SQLAlchemy Subquery</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="mailto:steven@mengzhou.org" title="Steven Zhou" target="_blank" itemprop="author">Steven Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2022-01-14T03:15:46.000Z" itemprop="datePublished"> Published 2022-01-13</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>When trying to delete rows using an <a target="_blank" rel="noopener" href="https://www.sqlalchemy.org/"><strong>SQLAlchemy</strong></a> subquery, such as deleting all rows in <code>Employee</code> table where the age of associated Person is below 18, you might write code like this:</p>
+<pre><code>sl = DBSession.query(Person.id).filter(Person.age < 18).subquery()
+DBSession.query(Employee).filter(Employee.person_id.in_(sl)).delete()
+</code></pre>
+<p>And after running it, you will got the following error:</p>
+<pre><code><font color="#F56C6C">sqlalchemy.exc.InvalidRequestError: Could not evaluate current criteria in Python:
+"Cannot evaluate Select". Specify 'fetch' or False for the synchronize_session execution option.
+</font></code></pre>
+<p>The reason for this error is that <a target="_blank" rel="noopener" href="https://www.sqlalchemy.org/"><strong>SQLAlchemy</strong></a> cannot synchronize objects in a single loop when both <code>SELECT</code> and <code>DELETE</code> operations are involved.<br>To resolve it, you need to disable synchronization by adding the <code>synchronize_session=False</code> parameter:</p>
+<pre><code>sl = DBSession.query(Person.id).filter(Person.age < 18).subquery()
+DBSession.query(Employee).filter(Employee.person_id.in_(sl)).delete(<font bold color="#409EFF"><b>synchronize_session=False</b></font>)
+</code></pre>
+<p>The issue’s <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/7892618/sqlalchemy-delete-subquery">StackOverflow Link</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2022/01/06/heroin-history/" title="History of Heroin" itemprop="url">History of Heroin</a>
   </h1>
   <p class="article-author">By
@@ -513,7 +580,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">Archives</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
 
