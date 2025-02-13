@@ -70,6 +70,62 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2025/02/13/School-Closed-by-Snow/" title="School Closed Due to Snow" itemprop="url">School Closed Due to Snow</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="mailto:steven@mengzhou.org" title="Steven Zhou" target="_blank" itemprop="author">Steven Zhou</a>
+		
+  <p class="article-time">
+    <time datetime="2025-02-13T21:13:04.000Z" itemprop="datePublished"> Published 2025-02-13</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <img src="/2025/02/13/School-Closed-by-Snow/snow.jpg" class="">
+<p>Today, All schools in the GTA are closed due to snow.<br>My daughter is thrilled.<br>Me too! I love shoveling snow.</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Life/">Life</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2025/02/04/Win-An-Air-Fighter-by-Drinking-Pepsi-Coca/" title="Pepsi, Where&#39;s My Jet?" itemprop="url">Pepsi, Where&#39;s My Jet?</a>
   </h1>
   <p class="article-author">By
@@ -588,71 +644,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2024/08/22/Server-lag/" title="Radical Microsoft" itemprop="url">Radical Microsoft</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="mailto:steven@mengzhou.org" title="Steven Zhou" target="_blank" itemprop="author">Steven Zhou</a>
-		
-  <p class="article-time">
-    <time datetime="2024-08-22T10:01:25.000Z" itemprop="datePublished"> Published 2024-08-22</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>About 10 years ago, I worked at Gameloft as a game server developer.<br>We used C++ to develop an online MMO-RPG game, where thousands of players connected simultaneously.</p>
-<p>One day after a game update, our QA team reported a bug: players experienced significant lag when performing actions.<br>The game client team investigated and informed me that the lag originated from the server.</p>
-<p>I added some logs and eventually found the problematic code.<br>It’s a call to get the size of a list, which looked something like this:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">std::list&lt;<span class="type">int</span>&gt; items;</span><br><span class="line">... <span class="comment">// do someting with items</span></span><br><span class="line"><span class="type">int</span> count = items.<span class="built_in">size</span>();</span><br></pre></td></tr></table></figure>
-<p>Can you see the problem?</p>
-<p>The <code>size()</code> function’s time complexity was O(N), not O(1)! <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/list/size">until C++11</a><br>So why didn’t I catch this issue in tests before it went live?</p>
-<ul>
-<li>First, it’s only noticeable when the list contains a large number of items.</li>
-<li>Second, We tested under Windows, compiling the code with MSVC. The default STL library in MSVC implemented <code>size()</code> as an O(1) function.However our production server ran on linux and was compiled with GCC. </li>
-</ul>
-<p>Yes MSVC was ahead of its time in this regard.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Coding/">Coding</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next&lt;span&gt;&lt;&#x2F;span&gt;</a>
@@ -682,7 +673,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Life/" title="Life">Life<sup>18</sup></a></li>
+			<li><a href="/categories/Life/" title="Life">Life<sup>19</sup></a></li>
 		  
 		
 		  
@@ -698,7 +689,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">Archives</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">January 2025</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
 
