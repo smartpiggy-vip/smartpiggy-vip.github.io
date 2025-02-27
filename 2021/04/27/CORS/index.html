@@ -4,26 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Northern Lights | Steven Zhou</title>
+    <title>CORS | Steven Zhou</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Steven Zhou">
     
 
     
-    <meta name="description" content="Yesterday, I heard the news that the northern lights would be visible in Toronto at night.At 9 PM, I drove north with my family and parked in a wild park.There were already many people there. Then, we">
+    <meta name="description" content="When I became a web app developer, I was confused by CORS(Cross-Origin Resource Sharing).You get a CORS error when trying to access a server API from a web browser. This error is not caused by the ser">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Northern Lights">
-<meta property="og:url" content="https://smartpiggy-vip.github.io/2024/10/11/Northern-Light/index.html">
+<meta property="og:title" content="CORS">
+<meta property="og:url" content="https://smartpiggy-vip.github.io/2021/04/27/CORS/index.html">
 <meta property="og:site_name" content="Steven Zhou">
-<meta property="og:description" content="Yesterday, I heard the news that the northern lights would be visible in Toronto at night.At 9 PM, I drove north with my family and parked in a wild park.There were already many people there. Then, we">
+<meta property="og:description" content="When I became a web app developer, I was confused by CORS(Cross-Origin Resource Sharing).You get a CORS error when trying to access a server API from a web browser. This error is not caused by the ser">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://smartpiggy-vip.github.io/2024/10/11/Northern-Light/NorthernLight.jpg">
-<meta property="article:published_time" content="2024-10-11T19:16:50.000Z">
-<meta property="article:modified_time" content="2025-02-20T20:46:37.901Z">
+<meta property="og:image" content="https://smartpiggy-vip.github.io/2021/04/27/CORS/cors-overview.png">
+<meta property="article:published_time" content="2021-04-27T18:19:28.000Z">
+<meta property="article:modified_time" content="2025-02-27T22:24:25.642Z">
 <meta property="article:author" content="Steven Zhou">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://smartpiggy-vip.github.io/2024/10/11/Northern-Light/NorthernLight.jpg">
+<meta name="twitter:image" content="https://smartpiggy-vip.github.io/2021/04/27/CORS/cors-overview.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Steven Zhou" type="application/atom+xml">
@@ -74,23 +74,25 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2024/10/11/Northern-Light/" title="Northern Lights" itemprop="url">Northern Lights</a>
+      <a href="/2021/04/27/CORS/" title="CORS" itemprop="url">CORS</a>
   </h1>
   <p class="article-author">By
        
 		<a href="mailto:steven@mengzhou.org" title="Steven Zhou" target="_blank" itemprop="author">Steven Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2024-10-11T19:16:50.000Z" itemprop="datePublished"> Published 2024-10-11</time>
+    <time datetime="2021-04-27T18:19:28.000Z" itemprop="datePublished"> Published 2021-04-27</time>
     
   </p>
 </header>
 	<div class="article-content">
-		<p>Yesterday, I heard the news that the northern lights would be visible in Toronto at night.<br>At 9 PM, I drove north with my family and parked in a wild park.<br>There were already many people there.</p>
-<p>Then, we saw the northern lights for the first time!</p>
-<img src="/2024/10/11/Northern-Light/NorthernLight.jpg" class="">
-<p>It was amazingly beautiful.<br>Before moving to Canada, we never thought we could see the northern lights in Toronto.<br>Lucky us!</p>
-<p>But does this signal extreme global climate change?</p>
+		<p>When I became a web app developer, I was confused by <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS"><strong>CORS</strong></a>(Cross-Origin Resource Sharing).<br>You get a CORS error when trying to access a server API from a web browser.</p>
+<p>This error is not caused by the server blocking the request.<br>Instead,the server sends a CORS header, and the web browser blocks it if the server doesn’t allow cross-domain access.<br>However, if you access the same server API using Pyhton, it works just fine.</p>
+<p>Why? Why does the web browser block it?</p>
+<p><strong>The Reason behind CORS:</strong><br>Imagine you are logged into <a target="_blank" rel="noopener" href="https://bank.com/">https://bank.com</a>. The website’s frontend stores a cookie that acts as your authentication token. Every request you make to bank.com automatically inludes this cookie, allowing the server to identify you.</p>
+<p>Now, suppose you open a malicious website in a new browser tab. That website might attempt to access bank.com using your authenticated cookie.<br>If bank.com has CORS restrictions, the web browser will block the request, keeping your money safe.<br>Otherwise, the malicious site could access your bank account, and you’d be in trouble.</p>
+<img src="/2021/04/27/CORS/cors-overview.png" class="">
+
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -98,7 +100,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Life/">Life</a>
+  <a class="article-category-link" href="/categories/Coding/">Coding</a>
 </div>
 
 
@@ -108,7 +110,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://smartpiggy-vip.github.io/2024/10/11/Northern-Light/" data-title="Northern Lights | Steven Zhou" data-tsina="" class="share clearfix">
+	  <div data-url="https://smartpiggy-vip.github.io/2021/04/27/CORS/" data-title="CORS | Steven Zhou" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -122,18 +124,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2025/01/16/Lost-iPhone/" title="My iPhone Adventure">
+ <a href="/2022/01/01/hello-world/" title="A Chat Between Two ETs">
   <strong>Last:</strong><br/>
   <span>
-  My iPhone Adventure</span>
+  A Chat Between Two ETs</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2024/10/10/Car-Leasing-in-China/"  title="Car Leasing">
+<a href="/2021/02/28/Dangling-Pointer-Issue/"  title="Dangling Pointer Issue">
  <strong>Next:</strong><br/> 
- <span>Car Leasing
+ <span>Dangling Pointer Issue
 </span>
 </a>
 </div>
