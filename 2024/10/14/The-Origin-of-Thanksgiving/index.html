@@ -4,22 +4,22 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Kotlin object not get auto-injected | Steven Zhou</title>
+    <title>Thanksgiving | Steven Zhou</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Steven Zhou">
     
 
     
-    <meta name="description" content="Recently I started working on a Spring Boot Kotlin project.I have been using Spring Boot with Java in the past, and I love its simple and flexible design, especially the autowire function.Autowiring m">
+    <meta name="description" content="I just learned that Thanksgiving dates are different between Canada and the US.It originated from Indigenous harvest festival.Since Canada is farther north, the harvest season is earlier.Therefore, Th">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin object not get auto-injected">
-<meta property="og:url" content="https://smartpiggy-vip.github.io/2023/01/25/Kotlin-object-not-get-auto-inject/index.html">
+<meta property="og:title" content="Thanksgiving">
+<meta property="og:url" content="https://smartpiggy-vip.github.io/2024/10/14/The-Origin-of-Thanksgiving/index.html">
 <meta property="og:site_name" content="Steven Zhou">
-<meta property="og:description" content="Recently I started working on a Spring Boot Kotlin project.I have been using Spring Boot with Java in the past, and I love its simple and flexible design, especially the autowire function.Autowiring m">
+<meta property="og:description" content="I just learned that Thanksgiving dates are different between Canada and the US.It originated from Indigenous harvest festival.Since Canada is farther north, the harvest season is earlier.Therefore, Th">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-01-25T08:03:59.000Z">
-<meta property="article:modified_time" content="2025-01-24T19:32:51.365Z">
+<meta property="article:published_time" content="2024-10-14T15:24:26.000Z">
+<meta property="article:modified_time" content="2025-03-18T16:01:01.375Z">
 <meta property="article:author" content="Steven Zhou">
 <meta name="twitter:card" content="summary">
 
@@ -72,24 +72,99 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2023/01/25/Kotlin-object-not-get-auto-inject/" title="Kotlin object not get auto-injected" itemprop="url">Kotlin object not get auto-injected</a>
+      <a href="/2024/10/14/The-Origin-of-Thanksgiving/" title="Thanksgiving" itemprop="url">Thanksgiving</a>
   </h1>
   <p class="article-author">By
        
 		<a href="mailto:steven@mengzhou.org" title="Steven Zhou" target="_blank" itemprop="author">Steven Zhou</a>
 		
   <p class="article-time">
-    <time datetime="2023-01-25T08:03:59.000Z" itemprop="datePublished"> Published 2023-01-25</time>
+    <time datetime="2024-10-14T15:24:26.000Z" itemprop="datePublished"> Published 2024-10-14</time>
     
   </p>
 </header>
 	<div class="article-content">
-		<p>Recently I started working on a Spring Boot Kotlin project.<br>I have been using Spring Boot with Java in the past, and I love its simple and flexible design, especially the <strong>autowire</strong> function.<br>Autowiring makes every module loosely coupled from others, which is one of the most powerful features in Spring Boot.<br>However, I created a new Service class and injected it into another service, as shown in the code below:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Service</span><br><span class="line">object CoolService &#123;</span><br><span class="line">    // ......</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyController &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    var coolService: SomeCoolService</span><br><span class="line">    // ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>But the autowire was not applied, <strong>coolService</strong> in <strong>MyController</strong> was null.<br>Can you figure out why?</p>
-<p>I searched the web but found no answer.<br>Yes, ChatGPT listed many reasons, but none of them were correct.</p>
-<p>Finally, I changed <strong>CoolService</strong> from <strong>object</strong> to <strong>class</strong>.<br>It worked!</p>
-<p>Spring Boot should output a warning if it cannot autowire an object.</p>
+		<p>I just learned that Thanksgiving dates are different between Canada and the US.<br>It originated from Indigenous harvest festival.<br>Since Canada is farther north, the harvest season is earlier.<br>Therefore, Thanksgiving is celebrated on the <strong>second Monday of October</strong> in Canada,<br>and on the <strong>fourth Thursday of November</strong> in the US.</p>
+<h3 id="World’s-harvest-festival-list"><a href="#World’s-harvest-festival-list" class="headerlink" title="World’s harvest festival list:"></a><strong>World’s harvest festival list:</strong></h3><style>
+th {
+  background-color: #f2f2f2;
+}
+</style>
+
+<table>
+<thead>
+<tr>
+<th><strong>Country</strong></th>
+<th><strong>Holiday Name</strong></th>
+<th><strong>Date</strong> or <strong>Timeframe</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Canada</strong></td>
+<td>Thanksgiving</td>
+<td>Second Monday of October</td>
+</tr>
+<tr>
+<td><strong>United States</strong></td>
+<td>Thanksgiving</td>
+<td>Fourth Thursday of November</td>
+</tr>
+<tr>
+<td><strong>China</strong></td>
+<td>Mid-Autumn Festival (similar)</td>
+<td>15th day of the 8th lunar month</td>
+</tr>
+<tr>
+<td><strong>South Korea</strong></td>
+<td>Chuseok</td>
+<td>15th day of the 8th lunar month</td>
+</tr>
+<tr>
+<td><strong>Vietnam</strong></td>
+<td>Tết Trung Thu (Mid-Autumn)</td>
+<td>15th day of the 8th lunar month</td>
+</tr>
+<tr>
+<td><strong>Japan</strong></td>
+<td>Labor Thanksgiving Day</td>
+<td>November 23</td>
+</tr>
+<tr>
+<td><strong>India</strong></td>
+<td>Pongal / Makar Sankranti</td>
+<td>January 14-15</td>
+</tr>
+<tr>
+<td><strong>Malaysia</strong></td>
+<td>Kaamatan</td>
+<td>May 30-31</td>
+</tr>
+<tr>
+<td><strong>Philippines</strong></td>
+<td>Harvest Festival</td>
+<td>Varies by region</td>
+</tr>
+<tr>
+<td><strong>Grenada</strong></td>
+<td>Thanksgiving</td>
+<td>October 25</td>
+</tr>
+<tr>
+<td><strong>Liberia</strong></td>
+<td>Thanksgiving</td>
+<td>First Thursday of November</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>Dia de Ação de Graças</td>
+<td>Fourth Thursday of November (optional)</td>
+</tr>
+<tr>
+<td><strong>Netherlands</strong></td>
+<td>Thanksgiving Service</td>
+<td>First Wednesday in November (optional)</td>
+</tr>
+</tbody></table>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -97,7 +172,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Coding/">Coding</a>
+  <a class="article-category-link" href="/categories/Story/">Story</a>
 </div>
 
 
@@ -107,7 +182,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://smartpiggy-vip.github.io/2023/01/25/Kotlin-object-not-get-auto-inject/" data-title="Kotlin object not get auto-injected | Steven Zhou" data-tsina="" class="share clearfix">
+	  <div data-url="https://smartpiggy-vip.github.io/2024/10/14/The-Origin-of-Thanksgiving/" data-title="Thanksgiving | Steven Zhou" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -121,18 +196,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2024/01/15/Storing-username-and-password-in-Git/" title="Storing username and password in Git">
+ <a href="/2024/12/17/VR-Headset/" title="VR Headset">
   <strong>Last:</strong><br/>
   <span>
-  Storing username and password in Git</span>
+  VR Headset</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2023/01/22/Time-Travel/"  title="Real World Time Travel">
+<a href="/2024/10/11/Northern-Light/"  title="Northern Lights">
  <strong>Next:</strong><br/> 
- <span>Real World Time Travel
+ <span>Northern Lights
 </span>
 </a>
 </div>
@@ -149,7 +224,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#World%E2%80%99s-harvest-festival-list"><span class="toc-number">1.</span> <span class="toc-text">World’s harvest festival list:</span></a></li></ol>
  
   </div>
 
