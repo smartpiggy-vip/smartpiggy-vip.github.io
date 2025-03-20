@@ -603,7 +603,7 @@ th {
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2024/09/20/Sort-Array-with-Compare-Function/" title="Comparison Function Rules When Sorting" itemprop="url">Comparison Function Rules When Sorting</a>
+      <a href="/2024/09/20/Sort-Array-with-Compare-Function/" title="C++ Sorting Crash?" itemprop="url">C++ Sorting Crash?</a>
   </h1>
   <p class="article-author">By
        
@@ -616,7 +616,7 @@ th {
 </header>
     <div class="article-content">
         
-        <p>Today, while sorting a vector using a comparison function in C++, I encountered a crash.<br>The error message was a segment fault, providing no clear indication of the exact issue in the code.<br>After some investigation, I finally pinpointed it, the comparison function:</p>
+        <p>Today, while sorting a vector using a comparison function in C++, I encountered a crash.<br>The error message was a segment fault, providing no clear indication of the exact issue in the code.<br>After some investigation, I finally pinpointed it, the issue was with the comparison function:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bool comp(int a, int b)&#123;</span><br><span class="line">    return a &lt;= b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Using <code>a &lt;= b</code> is incorrect, because it results in ambiguous comparisons.<br>After change it to <code>a &lt; b</code>, the problem was solved.</p>
 <h3 id="Comparison-Function-Rules"><a href="#Comparison-Function-Rules" class="headerlink" title="Comparison Function Rules:"></a>Comparison Function Rules:</h3><style>
